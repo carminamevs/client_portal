@@ -2,7 +2,7 @@
 // Receives GHL webhook POST or browser GET redirect,
 // builds portal URL with all client data, redirects browser to portal.
 
-const PORTAL_URL = 'https://myslimdownsuccess.com/client_portal';
+const PORTAL_URL = 'https://client-portal-three-kappa.vercel.app/client_portal.html';
 
 const FIELDS = [
   'name','last','type','code','astatus',
