@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Reset Portal — Fit & Healthy Living</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #7B2D8B; --purple-light: #EDD9F0; --purple-mid: #c084d0; --purple-dark: #5a1f67;
+    --teal: #0F6E56; --teal-light: #E1F5EE;
+    --amber: #854F0B; --amber-light: #FAEEDA;
+    --blue: #185FA5; --blue-light: #E6F1FB;
+    --coral: #993C1D; --coral-light: #FAECE7;
+    --text: #1A1A2E; --text-muted: #666; --text-faint: #999;
+    --bg: #FAF8FC; --bg-card: #ffffff;
+    --border: rgba(123,45,139,0.12); --border-hover: rgba(123,45,139,0.28);
+    --radius: 14px; --radius-sm: 8px;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --phase1-bg: #7C6FA0; --phase2-bg: #2B6CB0; --phase3-bg: #B7791F;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+
+
+  /* ── TOPBAR ── */
+  .topbar { position: sticky; top: 0; z-index: 100; background: rgba(250,248,252,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .topbar-left { display: flex; align-items: center; gap: 10px; }
+  .topbar-logo { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); }
+  .topbar-sep { width: 1px; height: 16px; background: var(--border); }
+  .topbar-portal { font-size: 13px; color: var(--text-muted); }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .client-pill { display: flex; align-items: center; gap: 8px; background: var(--bg-card); border: 0.5px solid var(--border); border-radius: 999px; padding: 5px 14px 5px 7px; }
+  .client-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--purple-light); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--purple); }
+  .client-pill-name { font-size: 13px; font-weight: 500; color: var(--text); }
+
+
+  /* ── HERO ── */
+  .hero { padding: 3rem 2rem 2rem; max-width: 880px; margin: 0 auto; }
+  .hero-greeting { font-size: 13px; color: var(--purple); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .hero-title { font-family: var(--font-display); font-size: 38px; font-weight: 400; color: var(--text); line-height: 1.15; margin-bottom: 1.75rem; }
+  .hero-title em { font-style: italic; color: var(--purple); }
+  .reset-code-hero { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1.25rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .rcb-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-faint); }
+  .rcb-code { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--purple); }
+  .rcb-sep { width: 1px; height: 24px; background: var(--border); }
+
+  /* ── CONTENT ── */
+  .content { max-width: 880px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+  /* ── PHASE SEPARATOR ── */
+  .phase-separator { display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0; }
+  .phase-sep-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--border), transparent); }
+  .phase-sep-line.right { background: linear-gradient(to left, var(--border), transparent); }
+  .phase-sep-pill { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--purple); background: var(--purple-light); padding: 5px 16px; border-radius: 99px; white-space: nowrap; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header { margin-bottom: 1.25rem; }
+  .section-title { font-family: var(--font-display); font-size: 24px; font-weight: 400; color: var(--text); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .section-tag { font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; background: var(--purple-light); color: var(--purple); }
+  .section-desc { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+  .section-divider { border: none; border-top: 0.5px solid var(--border); margin: 0.5rem 0 1.5rem; }
+
+  /* ── PROGRESS BLOCK ── */
+  .stats-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 12px; }
+  .stat-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; }
+  .stat-label { font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .stat-value { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--text); line-height: 1.2; }
+  .stat-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .progress-card { border-radius: var(--radius); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .progress-card.phase-1 { background: var(--phase1-bg); }
+  .progress-card.phase-2 { background: var(--phase2-bg); }
+  .progress-card.phase-3 { background: var(--phase3-bg); }
+  .prog-info { flex: 1; min-width: 140px; }
+  .prog-eyebrow { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.65); margin-bottom: 3px; }
+  .prog-phase { font-family: var(--font-display); font-size: 24px; font-weight: 500; color: #fff; }
+  .prog-track-wrap { flex: 2; min-width: 200px; }
+  .prog-week-label { font-size: 12px; color: rgba(255,255,255,0.65); margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .prog-track { height: 6px; background: rgba(255,255,255,0.22); border-radius: 99px; overflow: hidden; }
+  .prog-fill { height: 100%; background: rgba(255,255,255,0.85); border-radius: 99px; transition: width 0.8s cubic-bezier(.4,0,.2,1); }
+  .prog-dates { font-size: 11px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+
+  /* ── ASSET GRID ── */
+  .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-bottom: 2.5rem; }
+  .asset-card { background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; position: relative; overflow: hidden; transition: border-color 0.18s, box-shadow 0.18s, transform 0.12s; }
+  .asset-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(123,45,139,0.03) 0%, transparent 60%); pointer-events: none; }
+  .asset-card.unlocked { cursor: pointer; }
+  .asset-card.unlocked:hover { border-color: var(--border-hover); box-shadow: 0 4px 20px rgba(123,45,139,0.09); transform: translateY(-2px); }
+  .asset-card.unlocked:active { transform: translateY(0); }
+  .asset-card.locked { opacity: 0.46; cursor: not-allowed; pointer-events: none; }
+  .asset-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .asset-icon svg { width: 22px; height: 22px; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .ic-purple { background: var(--purple-light); } .ic-purple svg { stroke: var(--purple); }
+  .ic-teal   { background: var(--teal-light);   } .ic-teal svg   { stroke: var(--teal);   }
+  .ic-amber  { background: var(--amber-light);  } .ic-amber svg  { stroke: var(--amber);  }
+  .ic-blue   { background: var(--blue-light);   } .ic-blue svg   { stroke: var(--blue);   }
+  .ic-coral  { background: var(--coral-light);  } .ic-coral svg  { stroke: var(--coral);  }
+  .ic-gray   { background: #f0eff4;             } .ic-gray svg   { stroke: #888;          }
+  .asset-body { flex: 1; }
+  .asset-name { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.3; margin-bottom: 4px; }
+  .asset-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .asset-footer { display: flex; align-items: center; justify-content: space-between; }
+  .badge { font-size: 10px; font-weight: 500; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 99px; display: inline-flex; align-items: center; gap: 4px; }
+  .badge-ready   { background: var(--teal-light); color: var(--teal); }
+  .badge-locked  { background: #f0eff4; color: #999; }
+  .badge-pending { background: var(--amber-light); color: var(--amber); }
+  .asset-arrow { opacity: 0; transition: opacity 0.15s; }
+  .asset-card.unlocked:hover .asset-arrow { opacity: 1; }
+  .asset-arrow svg { width: 16px; height: 16px; stroke: var(--purple); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ── LOOM VIDEO ── */
+  .loom-wrap { margin-bottom: 1.5rem; display: none; }
+  .loom-ratio { position: relative; padding-bottom: 56.25%; height: 0; border-radius: var(--radius); overflow: hidden; background: #000; }
+  .loom-ratio iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .loom-caption { font-size: 12px; color: var(--text-faint); margin-top: 8px; text-align: center; }
+
+  /* ── PROGRAM TEASER ── */
+  .program-teaser-card { background: var(--bg-card); border: 1px dashed rgba(123,45,139,0.22); border-radius: var(--radius); padding: 2rem 2rem 1.75rem; margin-bottom: 2.5rem; }
+  .teaser-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .teaser-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; color: var(--text); }
+  .teaser-badge { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--purple-light); color: var(--purple); padding: 3px 10px; border-radius: 99px; white-space: nowrap; align-self: center; }
+  .teaser-body { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .teaser-payment { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+  .pay-option { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.1rem; text-decoration: none; color: inherit; transition: border-color 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; gap: 4px; }
+  .pay-option:hover { border-color: var(--border-hover); box-shadow: 0 2px 12px rgba(123,45,139,0.08); }
+  .pay-option.featured { border-color: rgba(123,45,139,0.3); background: var(--purple-light); }
+  .pay-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-faint); }
+  .pay-label.featured { color: var(--purple); }
+  .pay-title { font-size: 13px; font-weight: 500; color: var(--text); }
+  .pay-sub { font-size: 11px; color: var(--text-muted); }
+  .pay-sub.featured { color: var(--purple-dark); }
+  .pay-arrow { font-size: 12px; color: var(--purple); margin-top: 4px; }
+  .teaser-coupon { background: linear-gradient(135deg, #fdf6ff 0%, #f5f0ff 100%); border: 1px solid rgba(123,45,139,0.2); border-radius: var(--radius-sm); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .coupon-left { display: flex; flex-direction: column; gap: 3px; }
+  .coupon-eyebrow { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple); }
+  .coupon-title { font-size: 13px; font-weight: 500; color: var(--text); }
+  .coupon-timer { font-size: 11px; color: var(--text-muted); }
+  .coupon-timer span { color: var(--purple); font-weight: 500; }
+  .coupon-code-display { display: flex; flex-direction: column; align-items: center; gap: 3px; flex-shrink: 0; }
+  .coupon-code-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--purple); }
+  .coupon-code-value { font-size: 18px; font-weight: 500; letter-spacing: 0.12em; color: var(--purple); background: #fff; border: 1.5px dashed rgba(123,45,139,0.35); border-radius: var(--radius-sm); padding: 6px 18px; }
+  .healthywage-link { display: none; margin-top: 1rem; font-size: 13px; color: var(--purple); font-weight: 500; text-decoration: none; }
+  .healthywage-link:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  .portal-footer { border-top: 0.5px solid var(--border); padding: 1.5rem 2rem; max-width: 880px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-brand { font-size: 12px; color: var(--text-muted); }
+  .footer-brand strong { color: var(--purple); font-weight: 500; }
+  .footer-link { font-size: 12px; color: var(--purple); text-decoration: none; }
+  .footer-link:hover { text-decoration: underline; }
+  .footer-confidential { font-size: 11px; color: var(--text-faint); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up   { animation: fadeUp 0.5s ease 0.0s both; }
+  .fade-up-2 { animation: fadeUp 0.5s ease 0.1s both; }
+  .fade-up-3 { animation: fadeUp 0.5s ease 0.2s both; }
+  .fade-up-4 { animation: fadeUp 0.5s ease 0.3s both; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2rem 1.25rem 1.5rem; }
+    .hero-title { font-size: 28px; }
+    .content { padding: 0 1.25rem 3rem; }
+    .topbar { padding: 0 1.25rem; }
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+    .progress-card { flex-direction: column; gap: 1rem; }
+    .asset-grid { grid-template-columns: 1fr; }
+    .portal-footer { padding: 1.25rem; }
+    .teaser-payment { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LOCK SCREEN — email verification
+     All data arrives via URL parameters built by GHL.
+     ══════════════════════════════════════════ -->
+<div id="portal" style="display:block;">
+
+  <nav class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-logo">Fit &amp; Healthy Living</span>
+      <div class="topbar-sep"></div>
+      <span class="topbar-portal">Reset Portal</span>
+    </div>
+    <div class="topbar-right">
+      <div class="client-pill">
+        <div class="client-avatar" id="nav-avatar"></div>
+        <span class="client-pill-name" id="nav-name"></span>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-greeting fade-up">Welcome back</div>
+    <h1 class="hero-title fade-up-2">Hello, <em id="hero-name"></em>.<br>Your reset is in motion.</h1>
+    <div class="reset-code-hero fade-up-3">
+      <span class="rcb-label">Your Reset Code</span>
+      <div class="rcb-sep"></div>
+      <span class="rcb-code" id="hero-reset-code"></span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ══ SECTION 1: METABOLIC RESET ASSESSMENT ══ -->
+    <div class="section-header fade-up">
+      <div class="section-title">
+        Metabolic Reset Assessment
+        <span class="section-tag">Pre-Program</span>
+      </div>
+      <div class="section-desc">Your foundation documents — the assessment, call recordings, and core resources from your Reset Toolkit.</div>
+    </div>
+    <hr class="section-divider">
+
+    <div class="asset-grid fade-up-2" id="assessment-grid">
+
+      <a class="asset-card" id="card-report" href="#" target="_blank" rel="noopener">
+        <div class="asset-icon ic-purple">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="asset-body">
+          <div class="asset-name">Reset Code Report</div>
+          <div class="asset-desc">Your personalized metabolic assessment, scorecard, and full code driver analysis.</div>
+        </div>
+        <div class="asset-footer">
+          <span class="badge" id="badge-report">✓ Ready</span>
+          <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="asset-card" id="card-discovery" href="#" target="_blank" rel="noopener">
+        <div class="asset-icon ic-blue">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </div>
+        <div class="asset-body">
+          <div class="asset-name">Discovery Call Recording</div>
+          <div class="asset-desc">Your Call #1 — where we uncovered your patterns and set the foundation.</div>
+        </div>
+        <div class="asset-footer">
+          <span class="badge" id="badge-discovery">✓ Ready</span>
+          <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="asset-card" id="card-reveal" href="#" target="_blank" rel="noopener">
+        <div class="asset-icon ic-coral">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </div>
+        <div class="asset-body">
+          <div class="asset-name">Code Reveal Call Recording</div>
+          <div class="asset-desc">Your Call #2 — the full reveal of your Reset Code and personalized roadmap.</div>
+        </div>
+        <div class="asset-footer">
+          <span class="badge" id="badge-reveal">✓ Ready</span>
+          <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="asset-card" id="card-recipe" href="#" target="_blank" rel="noopener">
+        <div class="asset-icon ic-teal">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="asset-body">
+          <div class="asset-name">Reset Toolkit — Recipe Book</div>
+          <div class="asset-desc">Recipes aligned with your Magic Plate and Reset Code drivers.</div>
+        </div>
+        <div class="asset-footer">
+          <span class="badge" id="badge-recipe">✓ Ready</span>
+          <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="asset-card" id="card-cheatsheet" href="#" target="_blank" rel="noopener">
+        <div class="asset-icon ic-amber">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="asset-body">
+          <div class="asset-name">Reset Toolkit — Cheat Sheet</div>
+          <div class="asset-desc">Your quick-reference guide for daily meal rhythm and food choices.</div>
+        </div>
+        <div class="asset-footer">
+          <span class="badge" id="badge-cheatsheet">✓ Ready</span>
+          <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a class="asset-card" id="card-guide" href="#" target="_blank" rel="noopener">
+        <div class="asset-icon ic-purple">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="asset-body">
+          <div class="asset-name">Reset Toolkit — Guide</div>
+          <div class="asset-desc">The full explanation of your Reset Code and how to use it day to day.</div>
+        </div>
+        <div class="asset-footer">
+          <span class="badge" id="badge-guide">✓ Ready</span>
+          <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+    </div><!-- /assessment-grid -->
+
+    <!-- ══ VISUAL SEPARATOR ══ -->
+    <div class="phase-separator">
+      <div class="phase-sep-line"></div>
+      <div class="phase-sep-pill" id="sep-pill">The Program</div>
+      <div class="phase-sep-line right"></div>
+    </div>
+
+    <!-- ══ SECTION 2 HEADER ══ -->
+    <div class="section-header fade-up">
+      <div class="section-title">
+        Midlife Metabolic Reset Program
+        <span class="section-tag">12 Weeks</span>
+      </div>
+      <div class="section-desc">Your program documents, personal resources, and milestone analyses — unlocked as you progress.</div>
+    </div>
+    <hr class="section-divider">
+
+    <!-- ══ PROGRESS BLOCK — program clients only ══ -->
+    <div id="progress-block" style="display:none;">
+      <div class="stats-strip fade-up-3">
+        <div class="stat-card">
+          <div class="stat-label">Current Week</div>
+          <div class="stat-value" id="stat-week">—</div>
+          <div class="stat-sub" id="stat-phase-sub">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Current Phase</div>
+          <div class="stat-value" id="stat-phase-name">—</div>
+          <div class="stat-sub" id="stat-phase-num">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Start Date</div>
+          <div class="stat-value" id="stat-start">—</div>
+          <div class="stat-sub">Program began</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Completion</div>
+          <div class="stat-value" id="stat-end">—</div>
+          <div class="stat-sub">Your finish line</div>
+        </div>
+      </div>
+      <div class="progress-card phase-1 fade-up-4" id="progress-card">
+        <div class="prog-info">
+          <div class="prog-eyebrow">Current phase</div>
+          <div class="prog-phase" id="prog-phase-label">—</div>
+        </div>
+        <div class="prog-track-wrap">
+          <div class="prog-week-label">
+            <span id="prog-week-text">Week — of 12</span>
+            <span id="prog-pct-text">—%</span>
+          </div>
+          <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+        </div>
+        <div class="prog-dates" id="prog-dates">—</div>
+      </div>
+    </div>
+
+    <!-- ══ PROGRAM ASSET GRID — program clients only ══ -->
+    <div id="program-grid" style="display:none;">
+      <div class="asset-grid fade-up-2">
+
+        <a class="asset-card" id="card-onboarding" href="#" target="_blank" rel="noopener">
+          <div class="asset-icon ic-purple">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Onboarding Visual</div>
+            <div class="asset-desc">Your Deep Health &amp; Change Capacity map from your onboarding call.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-onboarding">✓ Ready</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="asset-card" id="card-anthem" href="#" target="_blank" rel="noopener">
+          <div class="asset-icon ic-blue">
+            <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Your Anthem Song</div>
+            <div class="asset-desc">"This Is the Me I See" — written from your own words and vision.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-anthem">✓ Ready</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="asset-card" id="card-manual" href="#" target="_blank" rel="noopener">
+          <div class="asset-icon ic-teal">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Owner's Manual</div>
+            <div class="asset-desc">Your personal guide to your metabolism — how you work and what you need.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-manual">✓ Ready</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="asset-card" id="card-nutrition" href="https://resetcode.s3.us-east-1.amazonaws.com/Holistic%2BNutrition%2BGuide.pdf" target="_blank" rel="noopener">
+          <div class="asset-icon ic-teal">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Holistic Nutrition Guide</div>
+            <div class="asset-desc">The full framework behind your program nutrition approach.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-nutrition">✓ Ready</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="asset-card" id="card-program-guide" href="https://docs.google.com/document/d/1PsCtRfR8HsNvHO8ih6amROh4GhIg0RpT/edit?usp=drive_link&ouid=118304726927715257529&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <div class="asset-icon ic-amber">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Program Guide</div>
+            <div class="asset-desc">Your week-by-week program structure, phases, and what to expect.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-program-guide">✓ Ready</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="asset-card" id="card-week6" href="#" target="_blank" rel="noopener">
+          <div class="asset-icon ic-coral">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Week 6 Mid-Point Analysis</div>
+            <div class="asset-desc">A deep look at your first 6 weeks — what's shifted and your momentum score.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-week6">🔒 Locked</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+        <a class="asset-card" id="card-final" href="#" target="_blank" rel="noopener">
+          <div class="asset-icon ic-gray">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="asset-body">
+            <div class="asset-name">Final Analysis</div>
+            <div class="asset-desc">Your complete transformation summary and next steps for maintaining your reset.</div>
+          </div>
+          <div class="asset-footer">
+            <span class="badge" id="badge-final">🔒 Locked</span>
+            <span class="asset-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /program-grid -->
+
+    <!-- ══ ASSESSMENT TEASER — assessment clients only ══ -->
+    <div id="program-teaser" style="display:none;">
+
+      <!-- Loom pre-call video -->
+      <div class="loom-wrap" id="loom-wrap">
+        <div class="loom-ratio">
+          <iframe id="loom-iframe" src="" allowfullscreen></iframe>
+        </div>
+        <p class="loom-caption">Watch this short video before your reveal call ↑</p>
+      </div>
+
+      <div class="program-teaser-card fade-up">
+        <div class="teaser-top">
+          <div class="teaser-title">Ready to go deeper?</div>
+          <span class="teaser-badge">Fast-Action Bonus Available</span>
+        </div>
+        <p class="teaser-body">The 12-Week Midlife Metabolic Reset takes everything from your assessment and turns it into a full transformation program — personalized to your Reset Code, your life, and your goals. Choose the payment option that works best for you.</p>
+
+        <div class="teaser-payment">
+          <a class="pay-option featured" id="payment-link" href="#" target="_blank" rel="noopener">
+            <div class="pay-label featured">Payment plan options</div>
+            <div class="pay-title">Pay in full or installments</div>
+            <div class="pay-sub featured">One-time · 3 monthly · 12 weekly</div>
+            <div class="pay-arrow">Enroll now →</div>
+          </a>
+          <a class="pay-option" id="bnpl-link" href="#" target="_blank" rel="noopener">
+            <div class="pay-label">Financing available</div>
+            <div class="pay-title">Buy now, pay later</div>
+            <div class="pay-sub">Klarna · Afterpay · Affirm</div>
+            <div class="pay-arrow" style="color:var(--purple);">See options →</div>
+          </a>
+        </div>
+
+        <div class="teaser-coupon">
+          <div class="coupon-left">
+            <div class="coupon-eyebrow">⚡ Fast-Action Bonus</div>
+            <div class="coupon-title">Save <span id="coupon-discount">X%</span> with your fast-action code</div>
+            <div class="coupon-timer">Bonus valid until <span id="coupon-expiry">—</span></div>
+          </div>
+          <div class="coupon-code-display">
+            <div class="coupon-code-label">Your code</div>
+            <div class="coupon-code-value" id="coupon-code-display">—</div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div><!-- /teaser -->
+
+  </div><!-- /content -->
+
+  <footer class="portal-footer">
+    <div class="footer-brand"><strong>Fit &amp; Healthy Living</strong> · <a class="footer-link" href="https://leanerandlighter.com" target="_blank" rel="noopener">leanerandlighter.com</a></div>
+    <div class="footer-confidential">This portal is private and confidential</div>
+  </footer>
+
+</div><!-- /portal -->
+
+<script>
+/* ══════════════════════════════════════════════════════
+   DATA — parsed from URL parameters.
+   GHL builds the full URL automatically when sending
+   the portal link via email/SMS/automation.
+   You never construct or touch the URL manually.
+
+   Paste this into your GHL email as the portal link
+   (all on one line — broken here for readability):
+   https://YOUR-DOMAIN.com/portal
+     ?name={{contact.first_name}}
+     &last={{contact.last_name}}
+     &type={{contact.portal_type}}
+     &code={{contact.metabolic_reset_code}}
+     &astatus={{contact.assessment_status}}
+     &loom={{contact.loom_before_zoom}}
+     &pay={{contact.payment_link}}
+     &bnpl={{contact.bnpl_link}}
+     &coupon={{contact.coupon_code}}
+     &disc={{contact.coupon_discount}}
+     &rdate={{contact.reveal_call_date}}
+     &lr={{contact.link_report}}
+     &ld={{contact.link_discovery}}
+     &lrv={{contact.link_reveal}}
+     &lrc={{contact.link_recipe}}
+     &lcs={{contact.link_cheatsheet}}
+     &lg={{contact.link_guide}}
+     &lo={{contact.link_onboarding}}
+     &la={{contact.link_anthem}}
+     &lm={{contact.link_manual}}
+     &lw6={{contact.link_week6}}
+     &lf={{contact.link_final}}
+     &so={{contact.status_onboarding}}
+     &sa={{contact.status_anthem}}
+     &sm={{contact.status_manual}}
+     &sw6={{contact.status_week6}}
+     &sf={{contact.status_final}}
+     &pstart={{contact.cohort_start_date}}
+     &pend={{contact.program_end}}
+   ══════════════════════════════════════════════════════ */
+
+const _p = new URLSearchParams(window.location.search);
+const _g = k => (_p.get(k) || '').trim();
+
+const DATA = {
+  firstName:      _g('name'),
+  lastName:       _g('last'),
+  initials:       (_g('name').charAt(0) + _g('last').charAt(0)).toUpperCase(),
+  clientType:     _g('type')    || 'assessment',
+  assessStatus:   _g('astatus') || 'ready',
+  loomUrl:        _g('loom'),
+  paymentLink:    _g('pay'),
+  bnplLink:       _g('bnpl'),
+  couponCode:     _g('coupon'),
+  couponDiscount: _g('disc'),
+  revealDate:     _g('rdate'),
+  programStart:   _g('pstart'),
+  programEnd:     _g('pend'),
+  resetCode:      _g('code'),
+  links: {
+    report:     _g('lr'),
+    discovery:  _g('ld'),
+    reveal:     _g('lrv'),
+    recipe:     _g('lrc'),
+    cheatsheet: _g('lcs'),
+    guide:      _g('lg'),
+    onboarding: _g('lo'),
+    anthem:     _g('la'),
+    manual:     _g('lm'),
+    week6:      _g('lw6'),
+    final:      _g('lf'),
+  },
+  statuses: {
+    onboarding: _g('so')  || 'ready',
+    anthem:     _g('sa')  || 'ready',
+    manual:     _g('sm')  || 'ready',
+    week6:      _g('sw6') || 'locked',
+    final:      _g('sf')  || 'locked',
+  }
+};
+
+/* ══════════════════════════════════════════════════════
+   PHASES
+   ══════════════════════════════════════════════════════ */
+const PHASES = [
+  { name:'Phase 1 — Align',    short:'Align',    num:'Phase 1 of 3', startWeek:1,  endWeek:4,  cls:'phase-1' },
+  { name:'Phase 2 — Balance',  short:'Balance',  num:'Phase 2 of 3', startWeek:5,  endWeek:8,  cls:'phase-2' },
+  { name:'Phase 3 — Energize', short:'Energize', num:'Phase 3 of 3', startWeek:9,  endWeek:12, cls:'phase-3' },
+];
+
+/* ══════════════════════════════════════════════════════
+   HELPERS
+   ══════════════════════════════════════════════════════ */
+function ghl(val) {
+  /* Returns empty string if GHL hasn't substituted the tag
+     (i.e. the literal string still contains {{ and }}) */
+  return (val && !val.includes('{{')) ? val.trim() : '';
+}
+
+function parseDate(str) {
+  const [y,m,d] = str.split('-').map(Number);
+  const dt = new Date(y, m-1, d); dt.setHours(0,0,0,0); return dt;
+}
+
+function fmt(str, withYear) {
+  return parseDate(str).toLocaleDateString('en-US', withYear
+    ? {month:'short', day:'numeric', year:'numeric'}
+    : {month:'short', day:'numeric'});
+}
+
+function getCurrentWeek(startStr) {
+  const start = parseDate(startStr);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const diff = today.getTime() - start.getTime();
+  if (diff < 0) return 1;
+  return Math.min(Math.floor(diff / 86400000 / 7) + 1, 12);
+}
+
+function getPhase(week) {
+  return PHASES.find(p => week >= p.startWeek && week <= p.endWeek) || PHASES[0];
+}
+
+function getCouponExpiry(dateStr) {
+  const [y,mo,d] = dateStr.split('-').map(Number);
+  const deadline = new Date(new Date(y, mo-1, d, 0,0,0).getTime() + 72*60*60*1000);
+  return String(deadline.getMonth()+1).padStart(2,'0') + '/' +
+         String(deadline.getDate()).padStart(2,'0') + '/' +
+         deadline.getFullYear();
+}
+
+function buildLoomEmbed(url) {
+  const m = url.match(/loom\.com\/(?:share|embed)\/([a-zA-Z0-9]+)/);
+  return m ? `https://www.loom.com/embed/${m[1]}?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true` : null;
+}
+
+function applyCardState(id, state) {
+  const card  = document.getElementById('card-' + id);
+  const badge = document.getElementById('badge-' + id);
+  if (!card || !badge) return;
+  card.classList.remove('unlocked','locked');
+  if (state === 'ready') {
+    card.classList.add('unlocked');
+    badge.className   = 'badge badge-ready';
+    badge.textContent = '✓ Ready';
+  } else if (state === 'pending') {
+    card.classList.add('locked');
+    badge.className   = 'badge badge-pending';
+    badge.textContent = 'Coming soon';
+  } else {
+    card.classList.add('locked');
+    badge.className   = 'badge badge-locked';
+    badge.textContent = '🔒 Locked';
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   POPULATE
+   ══════════════════════════════════════════════════════ */
+function populate() {
+  const D = DATA;
+  const isProgram = D.clientType === 'program';
+
+  /* ── Identity ── */
+  const nameEl = document.getElementById('hero-name');
+  const avatarEl = document.getElementById('nav-avatar');
+  const navNameEl = document.getElementById('nav-name');
+  const codeEl = document.getElementById('hero-reset-code');
+  if (nameEl)   nameEl.textContent   = D.firstName || 'there';
+  if (avatarEl) avatarEl.textContent = D.initials  || '?';
+  if (navNameEl) navNameEl.textContent = (D.firstName + ' ' + D.lastName).trim();
+  if (codeEl) codeEl.textContent = D.resetCode || '';
+
+  /* ── Assessment card states — one status covers all 6 ── */
+  const aStatus = D.assessStatus || 'ready';
+  ['report','discovery','reveal','recipe','cheatsheet','guide'].forEach(id => {
+    applyCardState(id, aStatus);
+    /* Wire href from links object */
+    const card = document.getElementById('card-' + id);
+    if (card && D.links[id]) card.href = D.links[id];
+  });
+
+  /* ── Show/hide sections ── */
+  document.getElementById('progress-block').style.display = isProgram ? 'block' : 'none';
+  document.getElementById('program-grid').style.display   = isProgram ? 'block' : 'none';
+  document.getElementById('program-teaser').style.display = isProgram ? 'none'  : 'block';
+
+  /* ── Program section ── */
+  if (isProgram) {
+    const startStr = D.programStart;
+    const endStr   = D.programEnd;
+    if (startStr) {
+      const week  = getCurrentWeek(startStr);
+      const phase = getPhase(week);
+      const pct   = Math.round(week / 12 * 100);
+
+      document.getElementById('stat-week').textContent       = 'Week ' + week;
+      document.getElementById('stat-phase-sub').textContent  = phase.name;
+      document.getElementById('stat-phase-name').textContent = phase.short;
+      document.getElementById('stat-phase-num').textContent  = phase.num;
+      document.getElementById('stat-start').textContent      = fmt(startStr, false);
+      document.getElementById('stat-end').textContent        = endStr ? fmt(endStr, false) : '—';
+      document.getElementById('sep-pill').textContent        = phase.short + ' Phase';
+
+      const pc = document.getElementById('progress-card');
+      pc.className = 'progress-card fade-up-4 ' + phase.cls;
+      document.getElementById('prog-phase-label').textContent = phase.name;
+      document.getElementById('prog-week-text').textContent   = 'Week ' + week + ' of 12';
+      document.getElementById('prog-pct-text').textContent    = pct + '%';
+      document.getElementById('prog-fill').style.width        = pct + '%';
+      document.getElementById('prog-dates').textContent       =
+        fmt(startStr, true) + (endStr ? ' – ' + fmt(endStr, true) : '');
+    }
+
+    /* Program card statuses + hrefs */
+    const S = D.statuses;
+    const programCards = {
+      onboarding:     { status: S.onboarding || 'ready',  link: D.links.onboarding },
+      anthem:         { status: S.anthem     || 'ready',  link: D.links.anthem },
+      manual:         { status: S.manual     || 'ready',  link: D.links.manual },
+      nutrition:      { status: 'ready',                  link: 'https://resetcode.s3.us-east-1.amazonaws.com/Holistic%2BNutrition%2BGuide.pdf' },
+      'program-guide':{ status: 'ready',                  link: 'https://docs.google.com/document/d/1PsCtRfR8HsNvHO8ih6amROh4GhIg0RpT/edit?usp=drive_link&ouid=118304726927715257529&rtpof=true&sd=true' },
+      week6:          { status: S.week6      || 'locked', link: D.links.week6 },
+      final:          { status: S.final      || 'locked', link: D.links.final },
+    };
+    Object.entries(programCards).forEach(([id, cfg]) => {
+      applyCardState(id, cfg.status);
+      const card = document.getElementById('card-' + id);
+      if (card && cfg.link) card.href = cfg.link;
+    });
+  }
+
+  /* ── Assessment teaser ── */
+  if (!isProgram) {
+    /* Payment links */
+    const payEl  = document.getElementById('payment-link');
+    const bnplEl = document.getElementById('bnpl-link');
+    if (payEl  && D.paymentLink) payEl.href  = D.paymentLink;
+    if (bnplEl && D.bnplLink)    bnplEl.href = D.bnplLink;
+
+    /* Coupon */
+    const discEl = document.getElementById('coupon-discount');
+    const codeDisplayEl = document.getElementById('coupon-code-display');
+    if (discEl)       discEl.textContent       = D.couponDiscount || 'X%';
+    if (codeDisplayEl) codeDisplayEl.textContent = D.couponCode   || '—';
+
+    /* Coupon expiry */
+    if (D.revealDate) {
+      const expEl = document.getElementById('coupon-expiry');
+      if (expEl) expEl.textContent = getCouponExpiry(D.revealDate);
+    }
+
+    /* Loom embed */
+    if (D.loomUrl) {
+      const embedSrc = buildLoomEmbed(D.loomUrl);
+      if (embedSrc) {
+        document.getElementById('loom-wrap').style.display = 'block';
+        document.getElementById('loom-iframe').src = embedSrc;
+      }
+    }
+  }
+}
+
+populate();
+</script>
+</body>
+</html>
