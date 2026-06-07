@@ -2,5 +2,8 @@
   "name": "fhl-portal-redirect",
   "version": "1.0.0",
   "description": "Fit & Healthy Living — portal redirect function",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@vercel/kv": "^1.0.0"
+  }
 }
